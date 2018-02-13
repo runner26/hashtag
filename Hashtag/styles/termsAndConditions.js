@@ -4,7 +4,6 @@ export default StyleSheet.create({
   container: {
     alignItems: 'center',
     flexDirection: 'column',
-    backgroundColor: 'blue',
     flex: 1
   },
   splashImageView: {
