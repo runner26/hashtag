@@ -41,20 +41,11 @@ export default StyleSheet.create({
   phoneView: {
     flexDirection: 'row'
   },
-  phoneTextInput: {
-
-  },
   passwordView: {
     flexDirection: 'row'
   },
-  passwordInput: {
-
-  },
-  signUpButton: {
-
-  },
   button: {
-    borderRadius: 2,
+    borderRadius: 5,
     marginTop: 30,
     backgroundColor: 'rgb(0, 122, 180)',
     borderColor: 'rgb(255, 255, 255)',

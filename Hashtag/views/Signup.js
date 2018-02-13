@@ -23,7 +23,6 @@ export default class Verification extends Component {
             <TextInput
               autoCorrect={false}
               placeholder='Your name'
-              style={styles.emailInputField}
               underlineColorAndroid="transparent"
             style={styles.nameTextInput}>
             </TextInput>
@@ -34,7 +33,6 @@ export default class Verification extends Component {
             <TextInput
               autoCorrect={false}
               placeholder='Country'
-              style={styles.emailInputField}
               underlineColorAndroid="transparent"
             style={styles.nameTextInput}>
             </TextInput>
@@ -47,7 +45,6 @@ export default class Verification extends Component {
             <TextInput
               autoCorrect={false}
               placeholder='Phone'
-              style={styles.emailInputField}
               underlineColorAndroid="transparent"
             style={styles.nameTextInput}>
             </TextInput>
@@ -61,7 +58,6 @@ export default class Verification extends Component {
               autoCorrect={false}
               placeholder='Password'
               secureTextEntry={true}
-              style={styles.emailInputField}
               underlineColorAndroid="transparent"
             style={styles.nameTextInput}>
             </TextInput>
