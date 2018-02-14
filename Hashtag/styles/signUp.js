@@ -16,9 +16,6 @@ export default StyleSheet.create({
     height: 125,
     width: 125
   },
-  userInfoView: {
-
-  },
   nameView: {
     flexDirection: 'row'
   },
@@ -30,7 +27,8 @@ export default StyleSheet.create({
   },
   label: {
     width: 80,
-    fontSize: 15
+    fontSize: 15,
+
   },
   nameTextInput: {
     flex: 1
