@@ -5,5 +5,6 @@ import SignUp from './views/SignUp';
 import VerifyNumber from './views/VerifyNumber';
 import ProfileInfo from './views/ProfileInfo';
 import Chats from './views/Chats';
+import Conversation from './views/Conversation';
 
-AppRegistry.registerComponent('Hashtag', () => Chats);
+AppRegistry.registerComponent('Hashtag', () => Conversation);

@@ -48,8 +48,23 @@ export default StyleSheet.create({
   },
   timeView: {
     width: 60,
-    height: 40,
-    justifyContent: 'flex-start'
+    height: 50,
+    justifyContent: 'flex-start',
+    alignItems: 'flex-end'
+
+  },
+  unreadMessagesCountView: {
+    height: 30,
+    width: 30,
+    borderRadius: 15,
+    backgroundColor: 'rgb(51, 204, 102)',
+    marginRight: 8,
+    marginTop: 5,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  unreadMessagesCount: {
+    color: 'white'
   },
   photoImageIcon: {
     width: 15,

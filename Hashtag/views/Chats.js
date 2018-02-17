@@ -12,38 +12,70 @@ import read from '../assets/images/read.png';
 import sent from '../assets/images/sent.png';
 import delivered from '../assets/images/delivered.png';
 import camera from '../assets/images/iconCamera.png';
+import videoCam from '../assets/images/videoCam.png';
+import audio from '../assets/images/audio.png';
 
 const sampleChats = [
   {
     key: '1',
+    unreadCount: 0,
     name: 'Johnny Rich',
     lastMessage: {
       message: 'Hello',
-      isImage: false,
+      type: 'text',
       time: '5:30 pm',
-      status: 'read'
+      status: 'read',
+      isSender: true,
     },
     backgroundColor: 'red'
   },
   {
     key: '2',
+    unreadCount: 5,
     name: '09034595050',
     lastMessage: {
-      message: 'atSchool.jpg',
-      isImage: true,
+      fileSource: { file: camera },
+      type: 'image',
       time: '5:30 pm',
-      status: 'sent'
+      status: 'sent',
+      isSender: true
     },
     backgroundColor: 'green'
   },
   {
     key: '3',
+    unreadCount: 0,
     name: 'Faith Doe',
     lastMessage: {
-      isImage: false,
+      type: 'text',
       message: 'This is a very long message but I\'ll like to see how it displays on the app',
       time: '5:30 pm',
-      status: 'delivered'
+      status: 'delivered',
+      isSender: false
+    },
+    backgroundColor: 'blue'
+  },
+  {
+    key: '3',
+    name: 'Faith Doe',
+    unreadCount: 3,
+    lastMessage: {
+      type: 'video',
+      message: 'This is a very long message but I\'ll like to see how it displays on the app',
+      time: '5:30 pm',
+      status: 'delivered',
+      isSender: false
+    },
+    backgroundColor: 'blue'
+  },
+  {
+    key: '3',
+    name: 'Faith Doe',
+    lastMessage: {
+      type: 'audio',
+      time: '5:30 pm',
+      status: 'delivered',
+      isSender: true
     },
     backgroundColor: 'blue'
   },
@@ -84,13 +116,26 @@ class Chat extends Component {
   }
 
   renderLastMessage() {
+    const { chat } = this.props;
     const { lastMessage } = this.props.chat;
-    if (!lastMessage.isImage) {
-      return <Text numberOfLines={1} style={styles.lastMessageText}>{lastMessage.message}</Text>;
+    switch (lastMessage.type) {
+      case 'image':
+        return <View style={styles.isPhotoView}>
+          <Image source={camera} style={styles.photoImageIcon}/>
+            <Text style={styles.lastMessageText}>Photo</Text></View>;
+      case 'text':
+        return <Text numberOfLines={1} style={styles.lastMessageText}>
+          {lastMessage.message}</Text>;
+      case 'audio':
+        return <View style={styles.isPhotoView}>
+          <Image source={audio} style={styles.photoImageIcon}/>
+            <Text style={styles.lastMessageText}>Audio</Text></View>;
+      case 'video':
+        return <View style={styles.isPhotoView}>
+          <Image source={videoCam} style={styles.photoImageIcon}/>
+            <Text style={styles.lastMessageText}>Video</Text></View>;
+      default: return <View/>;
     }
-    return <View style={styles.isPhotoView}>
-      <Image source={camera} style={styles.photoImageIcon}/>
-        <Text style={styles.lastMessageText}>Photo</Text></View>;
   }
 
   render() {
@@ -109,7 +154,11 @@ class Chat extends Component {
             <Text style={styles.userName}>{chat.name}</Text>
             <View style={styles.lastMessageView}>
               {
-                this.renderStatusIcon()
+                lastMessage.isSender ? (
+                  this.renderStatusIcon()
+                ) : (
+                  <View/>
+                )
               }
               {
                 this.renderLastMessage()
@@ -118,6 +167,15 @@ class Chat extends Component {
           </View>
           <View style={styles.timeView}>
             <Text>{lastMessage.time}</Text>
+              {
+                chat.unreadCount > 0 ? (
+                  <View style={styles.unreadMessagesCountView}>
+                    <Text style={styles.unreadMessagesCount}>{chat.unreadCount}</Text>
+                  </View>
+                ) : (
+                  <View/>
+                )
+              }
           </View>
         </View>
       </TouchableOpacity>
