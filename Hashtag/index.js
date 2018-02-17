@@ -7,6 +7,7 @@ import ProfileInfo from './views/ProfileInfo';
 import Chats from './views/Chats';
 import Conversation from './views/Conversation';
 import Calls from './views/Calls';
+import Explore from './views/Explore';
 
 
-AppRegistry.registerComponent('Hashtag', () => Calls);
+AppRegistry.registerComponent('Hashtag', () => Explore);
