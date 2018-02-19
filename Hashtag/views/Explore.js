@@ -38,6 +38,10 @@ const exploreMenu = [
 ];
 
 export default class Explore extends Component {
+  static navigationOptions = {
+    title: 'EXPLORE',
+    headerLeft: null
+  };
 
   renderSeparator() {
     this.stub = null;
@@ -74,3 +78,4 @@ class ListItem extends Component {
     );
   }
 }
+

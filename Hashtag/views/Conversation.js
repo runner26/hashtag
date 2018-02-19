@@ -22,6 +22,9 @@ import personIcon from '../assets/images/personIcon.png';
 import playButton from '../assets/images/play.png';
 import github from '../assets/images/github.png';
 import pauseButton from '../assets/images/pause.png';
+import videoCam from '../assets/images/videoCam.png';
+import callIcon from '../assets/images/call.png';
+import backButton from '../assets/images/chevronLeft.jpg';
 
 const sampleMessages = [
   {
@@ -122,7 +125,17 @@ const sampleMessages = [
     status: 'sent'
   }
 ];
-export default class Chats extends Component {
+export default class Conversation extends Component {
+  static navigationOptions = ({ navigation }) => {
+    const { params } = navigation.state;
+    return {
+      // title: params ? params.title : 'Conversation',
+      title: <TitleBar/>,
+      backTitle: '',
+      headerRight: <RightButtons/>
+    };
+  };
+
   renderSeparator() {
     this.stub = null;
     return <View style={styles.separator}></View>;
@@ -283,6 +296,34 @@ class Message extends Component {
               )
           )
         }
+      </View>
+    );
+  }
+}
+
+class TitleBar extends Component {
+  render() {
+    this.state = {};
+    return (
+      <View style={styles.headerView}>
+        <Image source={github} style={styles.userImageView}/>
+        <View style={styles.userInfo}>
+          <Text style={styles.nameText}>John Doe</Text>
+          <Text style={styles.lastSeen}>Today, 02:39 pm</Text>
+        </View>
+      </View>
+    );
+  }
+}
+
+class RightButtons extends Component {
+  render() {
+    this.state = {};
+    return (
+      <View style={styles.callIcons}>
+        <TouchableOpacity>
+          <Image style={styles.callIcon} source={callIcon}/>
+        </TouchableOpacity>
       </View>
     );
   }

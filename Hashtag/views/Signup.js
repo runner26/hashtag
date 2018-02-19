@@ -9,7 +9,16 @@ import {
 import styles from '../styles/signUp';
 import personIcon from '../assets/images/personIcon.png';
 
-export default class Verification extends Component {
+export default class SignUp extends Component {
+  static navigationOptions = {
+    title: 'Sign Up',
+  };
+  navigateToVerifyNumber() {
+    const { navigation } = this.props;
+    if (navigation) {
+      navigation.navigate('VerifyNumber');
+    }
+  }
   render() {
     this.state = { };
     return (
@@ -68,6 +77,7 @@ export default class Verification extends Component {
         </View>
         <View style={styles.signUpButton}>
           <TouchableOpacity
+            onPress={ () => this.navigateToVerifyNumber() }
             style={styles.button}
             underlayColor='#fff'
             >

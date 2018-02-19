@@ -5,7 +5,8 @@ export default StyleSheet.create({
     flexDirection: 'column',
     backgroundColor: 'white',
     flex: 1,
-    margin: 5
+    paddingLeft: 10,
+    paddingRight: 10
   },
   chatView: {
     flexDirection: 'row',
@@ -50,7 +51,7 @@ export default StyleSheet.create({
     width: 60,
     height: 50,
     justifyContent: 'flex-start',
-    alignItems: 'flex-end'
+    alignItems: 'flex-end',
 
   },
   unreadMessagesCountView: {
@@ -81,4 +82,24 @@ export default StyleSheet.create({
     marginBottom: 4,
     marginLeft: 60
   },
+  searchView: {
+    padding: 5,
+  },
+  pageTitle: {
+    fontSize: 30,
+    fontWeight: 'bold',
+    marginTop: 5
+  },
+  searchField: {
+    borderRadius: 8,
+    backgroundColor: 'rgba(196, 196, 200, .5)',
+    height: 30,
+    padding: 5,
+  },
+  checkboxView: {
+    width: 10,
+    height: 10,
+    backgroundColor: 'transparent',
+    borderColor: 'transparent'
+  }
 });

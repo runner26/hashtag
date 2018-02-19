@@ -172,5 +172,49 @@ export default StyleSheet.create({
     width: 50,
     height: 50,
     alignSelf: 'center'
+  },
+  headerView: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    height: 50,
+    width: 200,
+  },
+  backButtonView: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 40,
+    height: 45,
+    backgroundColor: 'red'
+  },
+  userImageView: {
+    height: 45,
+    width: 45,
+    borderRadius: 22.5,
+    marginRight: 5
+  },
+  userInfo: {
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    height: 45,
+    padding: 4,
+    flex: 1
+  },
+  nameText: {
+    fontSize: 16
+  },
+  lastSeen: {
+    fontSize: 12
+  },
+  callIcons: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  callIcon: {
+    width: 20,
+    height: 20,
+    marginRight: 10
   }
 });

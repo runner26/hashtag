@@ -5,7 +5,8 @@ export default StyleSheet.create({
     flexDirection: 'column',
     backgroundColor: 'white',
     flex: 1,
-    margin: 5
+    paddingLeft: 10,
+    paddingRight: 10
   },
   chatView: {
     flexDirection: 'row',
@@ -26,8 +27,8 @@ export default StyleSheet.create({
     fontWeight: 'bold'
   },
   callIcon: {
-    width: 35,
-    height: 35
+    width: 30,
+    height: 30
   },
   contactInfoView: {
     paddingTop: 2,
@@ -87,4 +88,23 @@ export default StyleSheet.create({
     marginBottom: 4,
     marginLeft: 60
   },
+  searchView: {
+    padding: 5,
+  },
+  pageTitle: {
+    fontSize: 30,
+    fontWeight: 'bold',
+  },
+  searchField: {
+    borderRadius: 8,
+    backgroundColor: 'rgba(196, 196, 200, .5)',
+    height: 30,
+    padding: 5,
+  },
+  checkboxView: {
+    width: 10,
+    height: 10,
+    backgroundColor: 'transparent',
+    borderColor: 'transparent'
+  }
 });

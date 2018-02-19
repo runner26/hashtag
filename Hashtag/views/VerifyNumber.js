@@ -7,7 +7,18 @@ import {
 } from 'react-native';
 import styles from '../styles/verifyNumber';
 
-export default class Verification extends Component {
+export default class VerifyNumber extends Component {
+  static navigationOptions = {
+    title: 'Verify Number',
+    header: null,
+  };
+  navigateToProfileInfo() {
+    const { navigation } = this.props;
+    if (navigation) {
+      navigation.navigate('ProfileInfo');
+    }
+  }
+
   render() {
     this.state = { };
     return (
@@ -40,7 +51,9 @@ export default class Verification extends Component {
           </TouchableOpacity>
         </View>
         <View style={styles.separator}/>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity
+          onPress={ () => this.navigateToProfileInfo() }
+          style={styles.button}>
           <Text style={styles.buttonText}>Next</Text>
         </TouchableOpacity>
       </View>

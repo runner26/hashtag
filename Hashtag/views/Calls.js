@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import { CheckBox } from 'react-native-elements';
 import {
   Text,
   Image,
   TouchableOpacity,
+  TextInput,
   View,
   FlatList
 } from 'react-native';
@@ -12,6 +14,7 @@ import videoCam from '../assets/images/videoCam.png';
 import callMade from '../assets/images/makeCall.png';
 import callReceived from '../assets/images/receiveCall.png';
 import callIcon from '../assets/images/call.png';
+import addCall from '../assets/images/addCall.png';
 
 const sampleChats = [
   {
@@ -76,6 +79,16 @@ const sampleChats = [
 ];
 
 export default class Calls extends Component {
+  static navigationOptions = {
+    title: 'CALLS',
+    headerLeft: <TouchableOpacity>
+      <Text style={{ marginLeft: 12 }}>Edit</Text>
+      </TouchableOpacity>,
+    headerRight: <TouchableOpacity>
+        <Image source={addCall} style={{ width: 20, height: 20, marginRight: 10 }}/>
+      </TouchableOpacity>
+  };
+
   renderSeparator() {
     this.stub = null;
     return <View style={styles.separator}></View>;
@@ -86,6 +99,7 @@ export default class Calls extends Component {
       <View style={styles.container}>
           <FlatList
             data={sampleChats}
+            ListHeaderComponent= { <HeaderComponent/> }
             ItemSeparatorComponent={ this.renderSeparator }
             renderItem={ ({ item }) => <Call call={item} />}
           >
@@ -119,7 +133,7 @@ class Call extends Component {
   }
 
   render() {
-    this.state = {};
+    this.state = { deleteItems: false };
     const { call } = this.props;
     const { backgroundColor } = this.props.call;
     const firstLetter = call.name.charAt(0);
@@ -140,17 +154,48 @@ class Call extends Component {
               }
             </View>
           </View>
-          <View style={styles.callIconView}>
+          <View style={{ flexDirection: 'row' }}>
+            <View style={styles.callIconView}>
+              {
+                call.lastCall.type === 'video' ? (
+                  <Image style={styles.callIcon} source={videoCam}/>
+                ) : (
+                  <Image style={styles.callIcon} source={callIcon}/>
+                )
+              }
+            </View>
             {
-              call.lastCall.type === 'video' ? (
-                <Image style={styles.callIcon} source={videoCam}/>
+              this.state.deleteItems ? (
+                <CheckBox
+                  checked={true}
+                  title={null}
+                  containerStyle={styles.checkboxView}
+                />
               ) : (
-                <Image style={styles.callIcon} source={callIcon}/>
+                <View/>
               )
             }
           </View>
         </View>
       </TouchableOpacity>
+    );
+  }
+}
+
+
+class HeaderComponent extends Component {
+  render() {
+    this.state = {};
+    return (
+      <View style={styles.headerContainer}>
+        <Text style={styles.pageTitle}>Calls</Text>
+        <View style={styles.searchView}>
+          <TextInput
+            placeholder="Search"
+            style={styles.searchField}
+          />
+        </View>
+      </View>
     );
   }
 }

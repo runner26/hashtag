@@ -10,7 +10,17 @@ import termsAndConditions from '../assets/images/termsAndConditions.jpg';
 import agreeButton from '../assets/images/agreeButton.png';
 
 
-export default class Verification extends Component {
+export default class TermsAndConditions extends Component {
+  static navigationOptions = {
+    title: 'T&C',
+    header: null,
+  };
+  navigateToSignUp() {
+    const { navigation } = this.props;
+    if (navigation) {
+      navigation.navigate('SignUp');
+    }
+  }
   render() {
     this.state = { };
     return (
@@ -24,7 +34,9 @@ export default class Verification extends Component {
             <Text style={styles.termsLink}>
               Hastag terms of Service and Privacy Policy</Text>
           </Text>
-          <TouchableOpacity style={styles.button} >
+          <TouchableOpacity
+            onPress={ () => this.navigateToSignUp() }
+            style={styles.button} >
             <Image source={agreeButton} style={styles.buttonImage}/>
         </TouchableOpacity>
         </View>

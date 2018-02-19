@@ -5,7 +5,6 @@ export default StyleSheet.create({
     flexDirection: 'column',
     backgroundColor: 'white',
     flex: 1,
-    margin: 0
   },
   listItemView: {
     flexDirection: 'row',
@@ -26,5 +25,10 @@ export default StyleSheet.create({
     width: 30,
     height: 30,
     marginRight: 10
-  }
+  },
+  pageTitle: {
+    fontSize: 30,
+    fontWeight: 'bold',
+    marginLeft: 10
+  },
 });

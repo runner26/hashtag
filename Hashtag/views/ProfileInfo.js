@@ -10,7 +10,16 @@ import styles from '../styles/profileInfo';
 import personIcon from '../assets/images/personIcon.png';
 import editIcon from '../assets/images/ic_mode_edit.png';
 
-export default class Verification extends Component {
+export default class ProfileInfo extends Component {
+  static navigationOptions = {
+    title: 'Profile Info',
+  };
+  navigateToMainTabBar() {
+    const { navigation } = this.props;
+    if (navigation) {
+      navigation.navigate('MainTabBar');
+    }
+  }
   render() {
     this.state = { };
     return (
@@ -40,6 +49,7 @@ export default class Verification extends Component {
 
         <View style={styles.signUpButton}>
           <TouchableOpacity
+            onPress={ () => this.navigateToMainTabBar() }
             style={styles.button}
             underlayColor='#fff'
             >
