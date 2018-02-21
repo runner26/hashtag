@@ -92,16 +92,36 @@ const sampleChats = [
 ];
 
 export default class Chats extends Component {
-  static navigationOptions = {
-    title: 'CHATS',
-    headerBackTitle: null,
-    headerLeft: <TouchableOpacity>
+  // static navigationOptions = {
+  //   title: 'CHATS',
+  //   headerBackTitle: null,
+  //   headerLeft: <TouchableOpacity>
+  //     <Text style={{ marginLeft: 12 }}>Edit</Text>
+  //     </TouchableOpacity>,
+  //   headerRight: <TouchableOpacity>
+  //       <Image source={editChats} style={{ width: 20, height: 20, marginRight: 10 }}/>
+  //     </TouchableOpacity>
+  // };
+
+  static navigationOptions = ({ navigation }) => {
+    const { params } = navigation.state;
+
+    return {
+      // title: params ? params.title : 'Conversation',
+      title: 'CHATS',
+      headerBackTitle: null,
+      headerLeft: <TouchableOpacity>
       <Text style={{ marginLeft: 12 }}>Edit</Text>
       </TouchableOpacity>,
-    headerRight: <TouchableOpacity>
+      headerRight: <TouchableOpacity
+        onPress={ () => navigation.navigate('NewChat') }
+      >
         <Image source={editChats} style={{ width: 20, height: 20, marginRight: 10 }}/>
       </TouchableOpacity>
+      
+    };
   };
+
 
   renderSeparator() {
     this.stub = null;
@@ -137,7 +157,7 @@ class Chat extends Component {
     }
   }
 
-  nagigateToConversation() {
+  navigateToConversation() {
     const { navigation } = this.props;
     if (navigation) {
       navigation.navigate('Conversation', { title: 'Johnny Rich' });
@@ -183,7 +203,7 @@ class Chat extends Component {
     const { lastMessage } = this.props.chat;
     return (
       <TouchableOpacity
-            onPress={ () => this.nagigateToConversation() }
+            onPress={ () => this.navigateToConversation() }
       >
         <View style={styles.chatView}>
           <View>

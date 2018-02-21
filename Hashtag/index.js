@@ -11,6 +11,7 @@ import Chats from './views/Chats';
 import Conversation from './views/Conversation';
 import Calls from './views/Calls';
 import Explore from './views/Explore';
+import NewChat from './views/NewChat';
 import MainTabBar from './views/MainTabBar';
 import RootNavigator from './RootNavigator';
 

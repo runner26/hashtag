@@ -6,6 +6,9 @@ import VerifyNumber from './views/VerifyNumber';
 import ProfileInfo from './views/ProfileInfo';
 import Conversation from './views/Conversation';
 import MainTabBar from './views/MainTabBar';
+import NewChat from './views/NewChat';
+import NewGroup from './views/NewGroup';
+import NewGroupInfo from './views/NewGroupInfo';
 
 const RootNavigator = StackNavigator({
   TermsAndConditions: {
@@ -26,6 +29,15 @@ const RootNavigator = StackNavigator({
   Conversation: {
     screen: Conversation
   },
+  NewChat: {
+    screen: NewChat
+  },
+  NewGroup: {
+    screen: NewGroup
+  },
+  NewGroupInfo: {
+    screen: NewGroupInfo
+  }
 });
 
 export default RootNavigator;

@@ -10,13 +10,13 @@ export default StyleSheet.create({
   },
   chatView: {
     flexDirection: 'row',
-    height: 70,
+    height: 50,
     alignItems: 'center'
   },
   userImageView: {
-    height: 60,
-    width: 60,
-    borderRadius: 30,
+    height: 40,
+    width: 40,
+    borderRadius: 20,
     alignItems: 'center',
     justifyContent: 'center',
     marginRight: 10
@@ -26,13 +26,9 @@ export default StyleSheet.create({
     color: 'white',
     fontWeight: 'bold'
   },
-  callIcon: {
-    width: 25,
-    height: 25
-  },
   contactInfoView: {
-    paddingTop: 2,
-    paddingBottom: 2,
+    paddingTop: 6,
+    paddingBottom: 6,
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'space-between',
@@ -49,16 +45,14 @@ export default StyleSheet.create({
     alignItems: 'center'
   },
   statusIcon: {
-    marginRight: 5,
-    width: 15,
-    height: 15
+    marginRight: 5
   },
-  callIconView: {
+  timeView: {
     width: 60,
     height: 50,
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'flex-end',
-    marginRight: 15
+
   },
   unreadMessagesCountView: {
     height: 30,
@@ -82,18 +76,24 @@ export default StyleSheet.create({
     color: 'rgba(196, 196, 200, 1)'
   },
   separator: {
-    height: 1,
+    height: 0.5,
     backgroundColor: 'rgba(196, 196, 200, 1)',
-    marginTop: 4,
-    marginBottom: 4,
+    marginTop: 1,
+    marginBottom: 1,
     marginLeft: 60
+  },
+  fullSeparator: {
+    height: 0.5,
+    backgroundColor: 'rgba(196, 196, 200, 1)',
+    marginTop: 1,
+    marginBottom: 1,
   },
   searchView: {
     padding: 5,
   },
   pageTitle: {
-    fontSize: 30,
-    fontWeight: 'bold',
+    fontSize: 20,
+    alignSelf: 'center'
   },
   searchField: {
     borderRadius: 8,
@@ -106,5 +106,54 @@ export default StyleSheet.create({
     height: 10,
     backgroundColor: 'transparent',
     borderColor: 'transparent'
+  },
+  headerContainer: {
+    backgroundColor: 'white',
+    paddingTop: 20,
+    paddingBottom: 5
+  },
+  topRow: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row'
+  },
+  createTextView: {
+    position: 'absolute',
+    right: 10,
+  },
+  createText: {
+
+  },
+  cancelTextView: {
+    position: 'absolute',
+    left: 10
+  },
+  cancelText: {
+    color: 'red'
+  },
+  newGroupView: {
+    alignItems: 'center'
+  },
+  newGroupImageView: {
+    height: 40,
+    width: 40,
+    borderRadius: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: 10,
+    backgroundColor: 'rgba(196, 196, 200, 1)',
+    padding: 5
+  },
+  newGroupImage: {
+    height: 30,
+    width: 30,
+    borderRadius: 15
+  },
+  newGroupText: {
+    fontWeight: 'bold',
+    color: 'green'
+  },
+  nextText: {
+    
   }
 });

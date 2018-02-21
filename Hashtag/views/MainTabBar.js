@@ -1,21 +1,8 @@
-import React, { Component } from 'react';
-import { Text } from 'react-native';
 import { TabNavigator } from 'react-navigation';
 import Chats from './Chats';
 import Calls from './Calls';
 import Explore from './Explore';
 import styles from '../styles/mainTabBar';
-
-class CustomTabBar extends Component {
-  render() {
-    this.state = {};
-    return (
-      <View style={{ backgroundColor: 'green' }}>
-      <Text>Hello there</Text>
-      </View>
-    );
-  }
-}
 
 const MainTabBar = TabNavigator({
   Chats: {
@@ -31,7 +18,6 @@ const MainTabBar = TabNavigator({
     tabBarLabel: 'EXPLORE'
   },
 }, {
-  TabBarComponent: CustomTabBar,
   tabBarPosition: 'bottom',
   animationEnabled: true,
   tabBarOptions: {
