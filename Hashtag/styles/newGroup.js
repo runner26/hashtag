@@ -117,9 +117,13 @@ export default StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row'
   },
-  cancelTextView: {
+  nextTextView: {
     position: 'absolute',
     right: 10,
+  },
+  cancelTextView: {
+    position: 'absolute',
+    left: 10,
   },
   cancelText: {
     color: 'red'
@@ -147,6 +151,6 @@ export default StyleSheet.create({
     color: 'green'
   },
   nextText: {
-    
+
   }
 });

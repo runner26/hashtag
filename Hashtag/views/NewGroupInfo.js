@@ -7,12 +7,12 @@ import {
   View,
   FlatList
 } from 'react-native';
-import { CheckBox } from 'react-native-elements';
 import styles from '../styles/newGroupInfo';
 import github from '../assets/images/github.png';
 import group from '../assets/images/groupOfPeople.png';
+import close from '../assets/images/close.png';
 
-const sampleChats = [
+const sampleMembers = [
   {
     key: '1',
     name: 'Johnny Rich',
@@ -50,6 +50,24 @@ const sampleChats = [
     backgroundColor: 'blue',
     hasProfileImage: false,
   },
+  {
+    key: '6',
+    name: 'Faith Doe',
+    backgroundColor: 'blue',
+    hasProfileImage: false,
+  },
+  {
+    key: '7',
+    name: 'Faith Doe',
+    backgroundColor: 'blue',
+    hasProfileImage: false,
+  },
+  {
+    key: '8',
+    name: 'Faith Doe',
+    backgroundColor: 'blue',
+    hasProfileImage: false,
+  },
 ];
 
 export default class NewGroup extends Component {
@@ -68,11 +86,30 @@ export default class NewGroup extends Component {
     this.state = { };
     return (
       <View style={styles.container}>
+        <View style={styles.groupInfoContainer}>
+          <View style={styles.groupImageView}>
+            <TouchableOpacity>
+              <Image source={group} style={styles.newGroupImage}/>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.groupInputView}>
+            <View style={styles.newSeparator}/>
+              <TextInput
+                clearButtonMode='while-editing'
+                placeholder="Group Title"
+              />
+            <View style={styles.newSeparator}/>
+          </View>
+          <Text style={styles.groupInstructionView}>Please provide a group subject and optional group icon</Text>
+        </View>
+        <View style={styles.participantsCount}><Text style={styles.countText}>Participants: 1/250</Text></View>
           <FlatList
-            data={sampleChats}
-            ItemSeparatorComponent={ this.renderSeparator }
+            data={sampleMembers}
+            numColumns={5}
+            style={[styles.membersList]}
+            contentContainerStyle={ styles.contentContainerStyle }
             renderItem={ ({ item }) =>
-              <Chat navigation={ this.props.navigation } chat={item} />}
+              <NewMember navigation={ this.props.navigation } member={item} />}
           >
           </FlatList>
       </View>
@@ -81,7 +118,7 @@ export default class NewGroup extends Component {
 }
 
 
-class Chat extends Component {
+class NewMember extends Component {
   nagigateToConversation() {
     const { navigation } = this.props;
     if (navigation) {
@@ -96,56 +133,31 @@ class Chat extends Component {
   }
 
   renderProfileImage() {
-    const { chat } = this.props;
-    const firstLetter = chat.name.charAt(0);
+    const { member } = this.props;
+    const firstLetter = member.name.charAt(0);
     const { backgroundColor } = this.props.chat;
-    if (chat.hasProfileImage) {
-      return <Image style={styles.userImageView} source={chat.profileImage}/>;
+    if (member.hasProfileImage) {
+      return <Image style={styles.userImageView} source={member.profileImage}/>;
     }
     return <View style={[styles.userImageView, { backgroundColor }]}>
             <Text style={styles.firstLetter}>{firstLetter}</Text>
       </View>;
   }
   render() {
-    this.state = { deleteItems: true };
-    const { chat } = this.props;
+    const { member } = this.props;
     return (
-      <TouchableOpacity
-            onPress={ () => this.nagigateToConversation() }
-      >
-        <View style={styles.chatView}>
-          <View>
-            {
-              this.renderProfileImage()
-            }
-          </View>
-          <View style={styles.contactInfoView}>
-            <Text style={styles.userName}>{chat.name}</Text>
-            <View style={styles.lastMessageView}>
-              {
-                this.renderStatus()
-              }
-            </View>
-          </View>
-          <View style={{ flexDirection: 'row' }}>
-            {
-              this.state.deleteItems ? (
-                <CheckBox
-                  checked={true}
-                  title={null}
-                  containerStyle={styles.checkboxView}
-                />
-              ) : (
-                <View/>
-              )
-            }
-          </View>
+      <View style={styles.listItemView}>
+        <View style={styles.userIconView}>
+          <Image style={styles.userIcon} source={member.profileImage}/>
+          <TouchableOpacity style={styles.cancelIconView}>
+            <Image style={styles.cancelIcon} source={close}/>
+          </TouchableOpacity>
         </View>
-      </TouchableOpacity>
+        <Text numberOfLines={1} style={styles.nameText}>{ member.name }</Text>
+      </View>
     );
   }
 }
-
 
 class HeaderComponent extends Component {
   render() {
@@ -157,7 +169,7 @@ class HeaderComponent extends Component {
             style={styles.cancelTextView}
             onPress={ () => this.props.navigation.goBack() }
           >
-            <Text style={styles.nextText}>Back</Text>
+            <Text style={styles.backText}>Back</Text>
           </TouchableOpacity>
           <Text style={styles.pageTitle}>New Group</Text>
           <TouchableOpacity

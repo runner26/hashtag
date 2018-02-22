@@ -14,5 +14,7 @@ import Explore from './views/Explore';
 import NewChat from './views/NewChat';
 import MainTabBar from './views/MainTabBar';
 import RootNavigator from './RootNavigator';
+import NewGroupInfo from './views/NewGroupInfo';
+
 
 AppRegistry.registerComponent('Hashtag', () => RootNavigator);

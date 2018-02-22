@@ -5,8 +5,8 @@ export default StyleSheet.create({
     flexDirection: 'column',
     backgroundColor: 'white',
     flex: 1,
-    paddingLeft: 10,
-    paddingRight: 10
+    paddingLeft: 0,
+    paddingRight: 0
   },
   chatView: {
     flexDirection: 'row',
@@ -144,16 +144,113 @@ export default StyleSheet.create({
     backgroundColor: 'rgba(196, 196, 200, 1)',
     padding: 5
   },
-  newGroupImage: {
-    height: 30,
-    width: 30,
-    borderRadius: 15
-  },
   newGroupText: {
     fontWeight: 'bold',
     color: 'green'
   },
   nextText: {
     
+  },
+  groupInfoContainer: {
+    marginLeft: 10,
+    marginRight: 10,
+    marginTop: 20,
+    height: 100,
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  groupImageView: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: 'rgba(196, 196, 200, 1)',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  newGroupImage: {
+    height: 30,
+    width: 30,
+    borderRadius: 15
+  },
+  newSeparator: {
+    height: 0.5,
+    backgroundColor: 'rgba(196, 196, 200, 1)',
+    marginLeft: 0,
+    marginRight: 0,
+    marginBottom: 10,
+    marginTop: 10,
+  },
+  groupInputView: {
+    flex: 1,
+    marginLeft: 20
+  },
+  groupInstructionView: {
+    position: 'absolute',
+    bottom: 0,
+    left: 60,
+    fontSize: 11,
+    width: 200,
+    color: 'rgba(180, 180, 185, 1)',
+    lineHeight: 12.5
+  },
+  participantsCount: {
+    backgroundColor: 'rgba(220, 220, 220, .5)',
+    padding: 2,
+    marginLeft: 0,
+    marginRight: 0,
+    marginTop: 10,
+    marginBottom: 10,
+    paddingLeft: 15
+  },
+  countText: {
+    fontSize: 12,
+    color: 'rgba(150, 150, 150, 1)'
+  },
+  membersList: {
+    marginLeft: 10,
+    marginRight: 10,
+  },
+  userIconView: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    backgroundColor: 'rgba(240, 240, 240, 1)',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  userIcon: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+  },
+  cancelIcon: {
+    width: 15,
+    height: 15,
+    borderRadius: 8
+  },
+  cancelIconView: {
+    width: 20,
+    height: 20,
+    position: 'absolute',
+    top: 2,
+    right: 2,
+    backgroundColor: 'white',
+    borderRadius: 10,
+    padding: 2,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  nameText: {
+    alignSelf: 'center',
+    fontSize: 8,
+    width: 50,
+    textAlign: 'center'
+  },
+  contentContainerStyle: {
+    alignItems: 'center'
+  },
+  listItemView: {
+    alignSelf: 'center',
+    margin: 2
   }
 });

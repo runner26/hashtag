@@ -166,9 +166,15 @@ class HeaderComponent extends Component {
     return (
       <View style={styles.headerContainer}>
         <View style={styles.topRow}>
-          <Text style={styles.pageTitle}>New Group</Text>
           <TouchableOpacity
             style={styles.cancelTextView}
+            onPress={ () => this.props.navigation.goBack() }
+          >
+            <Text style={styles.cancelText}>Cancel</Text>
+          </TouchableOpacity>
+          <Text style={styles.pageTitle}>Add Members</Text>
+          <TouchableOpacity
+            style={styles.nextTextView}
             onPress={ () => this.goToGroupInfo() }
           >
             <Text style={styles.nextText}>Next</Text>
