@@ -43,7 +43,7 @@
       "requireParamDescription": false,
       "requireReturnDescription": true
     }],
-    "require-jsdoc": ["error", {
+    "require-jsdoc": [0, {
         "require": {
         }
     }]
