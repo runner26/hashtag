@@ -1,3 +1,6 @@
+/* eslint require-jsdoc : 0 */
+/* eslint class-methods-use-this: 0 */
+/* eslint no-underscore-dangle: 0 */
 import React, { Component } from 'react';
 import {
   Text,
@@ -6,10 +9,22 @@ import {
   TextInput,
   View
 } from 'react-native';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { ActionCreators } from '../app/actions';
 import styles from '../styles/signUp';
 import personIcon from '../assets/images/personIcon.png';
 
-export default class SignUp extends Component {
+class SignUp extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: '',
+      region: '',
+      phone: '',
+      password: ''
+    };
+  }
   static navigationOptions = {
     title: 'Sign Up',
   };
@@ -18,6 +33,19 @@ export default class SignUp extends Component {
     if (navigation) {
       navigation.navigate('VerifyNumber');
     }
+  }
+  signUpUser() {
+    let {
+      name,
+      country,
+      phone,
+      password
+    } = this.refs;
+    name = name._lastNativeText;
+    country = country._lastNativeText;
+    phone = phone._lastNativeText;
+    password = password._lastNativeText;
+    this.props.signUp(name, country, phone, password);
   }
   render() {
     this.state = { };
@@ -33,7 +61,8 @@ export default class SignUp extends Component {
               autoCorrect={false}
               placeholder='Your name'
               underlineColorAndroid="transparent"
-            style={styles.nameTextInput}>
+              ref='name'
+              style={styles.nameTextInput}>
             </TextInput>
           </View>
           <View style={styles.separator}/>
@@ -42,6 +71,7 @@ export default class SignUp extends Component {
             <TextInput
               autoCorrect={false}
               placeholder='Country'
+              ref='country'
               underlineColorAndroid="transparent"
             style={styles.nameTextInput}>
             </TextInput>
@@ -54,6 +84,7 @@ export default class SignUp extends Component {
             <TextInput
               autoCorrect={false}
               placeholder='Phone'
+              ref='phone'
               underlineColorAndroid="transparent"
             style={styles.nameTextInput}>
             </TextInput>
@@ -66,6 +97,7 @@ export default class SignUp extends Component {
             <TextInput
               autoCorrect={false}
               placeholder='Password'
+              ref='password'
               secureTextEntry={true}
               underlineColorAndroid="transparent"
             style={styles.nameTextInput}>
@@ -91,3 +123,9 @@ export default class SignUp extends Component {
     );
   }
 }
+
+function matchDispatchToPros(dispatch) {
+  return bindActionCreators(ActionCreators, dispatch);
+}
+
+export default connect(() => ({}), matchDispatchToPros)(SignUp);

@@ -1,7 +1,7 @@
 import { StackNavigator } from 'react-navigation';
 
 import TermsAndConditions from './views/TermsAndConditions';
-import SignUp from './views/SignUp';
+import SignUp from './views/Signup';
 import VerifyNumber from './views/VerifyNumber';
 import ProfileInfo from './views/ProfileInfo';
 import Conversation from './views/Conversation';
